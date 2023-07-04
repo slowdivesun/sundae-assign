@@ -1,5 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
-import axios from axios;
+import axios from "axios";
 
 export async function POST(req) {
   let code = req.body.code;
@@ -14,7 +13,6 @@ export async function POST(req) {
   formData.append("code", code);
 
   console.log(formData);
-
 
   try {
     // send form based request to Instagram API
@@ -42,7 +40,10 @@ export async function POST(req) {
     //   },
     // });
 
-    let result = await axios.post("https://api.instagram.com/oauth/access_token", formData);
+    let result = await axios.post(
+      "https://api.instagram.com/oauth/access_token",
+      formData
+    );
     console.log("Response of short-lived: ", result);
 
     // Got access token. Parse string response to JSON
