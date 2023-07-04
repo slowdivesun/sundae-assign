@@ -23,6 +23,14 @@ const InstaSection = () => {
     // TEST messages
     console.log("params code: ", searchParams.get("code"));
 
+    console.log(
+      "body of the request: ",
+      JSON.stringify({
+        code,
+        redirectUri: window.location.origin + "/insta/",
+      })
+    );
+
     const func = () => {
       fetch("/api/token", {
         method: "POST",
