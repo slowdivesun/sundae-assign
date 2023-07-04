@@ -31,7 +31,7 @@ const InstaSection = () => {
       })
     );
 
-    const func = () => {
+    try {
       fetch("/api/token", {
         method: "POST",
         headers: {
@@ -42,9 +42,9 @@ const InstaSection = () => {
           redirectUri: window.location.origin + "/insta/",
         }),
       });
-    };
-
-    func();
+    } catch (error) {
+      console.log(error);
+    }
 
     // fetch("/api/profile-data")
     //   .then((res) => res.json())
