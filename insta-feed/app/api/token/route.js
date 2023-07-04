@@ -1,9 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
+import axios from axios;
 
 export async function POST(req) {
   let code = req.body.code;
   let redirectUri = req.body.redirectUri;
   let accessToken = null;
+  let formData = new FormData();
+
+  formData.append("client_id", process.env.NEXT_PUBLIC_APP_ID);
+  formData.append("client_secret", process.env.NEXT_PUBLIC_SECRET);
+  formData.append("grant_type", "authorization_code");
+  formData.append("redirect_uri", redirectUri);
+  formData.append("code", code);
+
 
   try {
     // send form based request to Instagram API
@@ -18,22 +27,24 @@ export async function POST(req) {
     //   },
     // });
 
-    let result = await fetch("https://api.instagram.com/oauth/access_token", {
-      method: "POST",
-      body: {
-        form: {
-          client_id: process.env.NEXT_PUBLIC_APP_ID,
-          client_secret: process.env.NEXT_PUBLIC_SECRET,
-          grant_type: "authorization_code",
-          redirect_uri: redirectUri,
-          code: code,
-        },
-      },
-    });
+    // let result = await fetch("https://api.instagram.com/oauth/access_token", {
+    //   method: "POST",
+    //   body: {
+    //     form: {
+    //       client_id: process.env.NEXT_PUBLIC_APP_ID,
+    //       client_secret: process.env.NEXT_PUBLIC_SECRET,
+    //       grant_type: "authorization_code",
+    //       redirect_uri: redirectUri,
+    //       code: code,
+    //     },
+    //   },
+    // });
+
+    let result = await axios.post("https://api.instagram.com/oauth/access_token", formData);
+    console.log("Response of short-lived: ", result);
 
     // Got access token. Parse string response to JSON
     accessToken = JSON.parse(result).access_token;
-    console.log("Response of short-lived: ", resp);
 
     try {
       let resp = await axios.get(
