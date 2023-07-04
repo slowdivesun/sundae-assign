@@ -13,6 +13,8 @@ export async function POST(req) {
   formData.append("redirect_uri", redirectUri);
   formData.append("code", code);
 
+  console.log(formData);
+
 
   try {
     // send form based request to Instagram API
