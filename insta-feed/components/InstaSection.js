@@ -12,20 +12,22 @@ const InstaSection = () => {
     setLoading(true);
     const searchParams = useSearchParams();
     console.log(searchParams.get("code"));
-
     console.log("params: ", searchParams);
     console.log("redirectUri: ", window.location.origin + "/insta/");
+    const func = () => {
+      fetch("/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          code,
+          redirectUri: window.location.origin + "/insta/",
+        }),
+      });
+    };
 
-    fetch("/api/token", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        code,
-        redirectUri: window.location.origin + "/insta/",
-      }),
-    });
+    func();
 
     // fetch("/api/profile-data")
     //   .then((res) => res.json())
