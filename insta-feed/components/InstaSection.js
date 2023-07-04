@@ -32,20 +32,16 @@ const InstaSection = () => {
     );
 
     const func = () => {
-      try {
-        fetch("/api/token", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            code,
-            redirectUri: window.location.origin + "/insta/",
-          }),
-        });
-      } catch (error) {
-        console.log(error);
-      }
+      fetch("/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          code,
+          redirectUri: window.location.origin + "/insta/",
+        }),
+      });
     };
 
     func();
