@@ -7,8 +7,7 @@ export async function POST(req) {
 
   try {
     // send form based request to Instagram API
-    let result = await request.post({
-      url: "https://api.instagram.com/oauth/access_token",
+    let result = await fetch("https://api.instagram.com/oauth/access_token", {
       form: {
         client_id: process.env.NEXT_PUBLIC_APP_ID,
         client_secret: process.env.NEXT_PUBLIC_SECRET,
