@@ -1,0 +1,42 @@
+/insta-feed/.env
+/insta-feed/.env.local
+/insta-feed/node_modules
+/insta-feed/.next
+/server/node_modules
+/server/.env
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/insta-feed/node_modules
+/insta-feed/.pnp
+/insta-feed/.pnp.js
+
+# testing
+/insta-feed/coverage
+
+# next.js
+/insta-feed/.next/
+/insta-feed/out/
+
+# production
+/insta-feed/build
+
+# misc
+/insta-feed/.DS_Store
+/insta-feed/*.pem
+
+# debug
+/insta-feed/npm-debug.log*
+/insta-feed/yarn-debug.log*
+/insta-feed/yarn-error.log*
+
+# local env files
+/insta-feed/.env*.local
+
+# vercel
+/insta-feed/.vercel
+
+# typescript
+/insta-feed/*.tsbuildinfo
+/insta-feed/next-env.d.ts
