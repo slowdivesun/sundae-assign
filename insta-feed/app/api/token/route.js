@@ -42,7 +42,12 @@ export async function POST(req) {
 
     let result = await axios.post(
       "https://api.instagram.com/oauth/access_token",
-      formData
+      formData,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
     );
     console.log("Response of short-lived: ", result);
 
