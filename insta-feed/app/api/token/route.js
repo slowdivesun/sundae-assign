@@ -1,4 +1,3 @@
-import { request } from "http";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -8,14 +7,27 @@ export async function POST(req) {
 
   try {
     // send form based request to Instagram API
-    let result = await request.post({
-      url: "https://api.instagram.com/oauth/access_token",
-      form: {
-        client_id: process.env.NEXT_PUBLIC_APP_ID,
-        client_secret: process.env.NEXT_PUBLIC_SECRET,
-        grant_type: "authorization_code",
-        redirect_uri: redirectUri,
-        code: code,
+    // let result = await request.post({
+    //   url: "https://api.instagram.com/oauth/access_token",
+    //   form: {
+    //     client_id: process.env.NEXT_PUBLIC_APP_ID,
+    //     client_secret: process.env.NEXT_PUBLIC_SECRET,
+    //     grant_type: "authorization_code",
+    //     redirect_uri: redirectUri,
+    //     code: code,
+    //   },
+    // });
+
+    let result = await fetch("https://api.instagram.com/oauth/access_token", {
+      method: "POST",
+      body: {
+        form: {
+          client_id: process.env.NEXT_PUBLIC_APP_ID,
+          client_secret: process.env.NEXT_PUBLIC_SECRET,
+          grant_type: "authorization_code",
+          redirect_uri: redirectUri,
+          code: code,
+        },
       },
     });
 
