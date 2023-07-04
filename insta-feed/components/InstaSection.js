@@ -9,7 +9,7 @@ const InstaSection = () => {
   console.log("im in insta section");
 
   const searchParams = useSearchParams();
-  const code = searchParams.get("code");
+  let code = searchParams.get("code");
 
   // TEST maessages
   console.log("params: ", searchParams);
