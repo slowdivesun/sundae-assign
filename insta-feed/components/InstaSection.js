@@ -8,12 +8,21 @@ const InstaSection = () => {
 
   console.log("im in insta section");
 
+  const searchParams = useSearchParams();
+  const code = searchParams.get("code");
+
+  // TEST maessages
+  console.log("params: ", searchParams);
+  console.log("params code: ", searchParams.get("code"));
+  console.log("redirectUri: ", window.location.origin + "/insta/");
+
   useEffect(() => {
     setLoading(true);
-    const searchParams = useSearchParams();
-    console.log(searchParams.get("code"));
-    console.log("params: ", searchParams);
-    console.log("redirectUri: ", window.location.origin + "/insta/");
+    code = searchParams.get("code");
+
+    // TEST messages
+    console.log("params code: ", searchParams.get("code"));
+
     const func = () => {
       fetch("/api/token", {
         method: "POST",
@@ -35,7 +44,7 @@ const InstaSection = () => {
     //     setData(data);
     //     setLoading(false);
     //   });
-  }, []);
+  }, [searchParams]);
 
   //   if (isLoading) return <p>Loading...</p>;
   //   if (!data) return <p>No profile data</p>;
