@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export async function POST(req) {
+  console.log("Here's req: ", req);
   let code = req.body.code;
   let redirectUri = req.body.redirectUri;
   let accessToken = null;
@@ -64,6 +65,8 @@ export async function POST(req) {
     } catch (e) {
       console.log("Error getting long-lived token:= ", e);
     }
+
+    return NextResponse.json({ msg: "Done!", status: 200 });
   } catch (e) {
     console.log("Error getting short-lived token:= ", e);
   }
