@@ -31,20 +31,24 @@ const InstaSection = () => {
       })
     );
 
-    try {
-      fetch("/api/token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          code,
-          redirectUri: window.location.origin + "/insta/",
-        }),
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    const func = () => {
+      try {
+        fetch("/api/token", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            code,
+            redirectUri: window.location.origin + "/insta/",
+          }),
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    func();
 
     // fetch("/api/profile-data")
     //   .then((res) => res.json())
