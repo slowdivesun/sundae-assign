@@ -41,3 +41,5 @@ const InstaSection = () => {
 
   return <div>Insta Section</div>;
 };
+
+export default InstaSection;
