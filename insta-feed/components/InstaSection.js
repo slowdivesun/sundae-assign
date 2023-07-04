@@ -6,6 +6,8 @@ const InstaSection = () => {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
 
+  console.log("im in insta section");
+
   useEffect(() => {
     setLoading(true);
     const searchParams = useSearchParams();
