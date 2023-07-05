@@ -13,7 +13,16 @@ export default async function POST(req) {
   formData.append("redirect_uri", redirectUri);
   formData.append("code", code);
 
-  console.log("formData: ", formData);
+  // console.log("formData: ", formData);
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "https://api.instagram.com/oauth/access_token",
+    headers: {
+      ...formData.getHeaders(),
+    },
+    data: data,
+  };
 
   const bodyJson = {
     client_id: process.env.NEXT_PUBLIC_APP_ID,
@@ -49,19 +58,15 @@ export default async function POST(req) {
     //   },
     // });
 
-    let result = await axios.post(
-      "https://api.instagram.com/oauth/access_token",
-      bodyJson,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    let result = await axios.request(config);
     console.log("Response of short-lived: ", result);
 
     // Got access token. Parse string response to JSON
     accessToken = JSON.parse(result).access_token;
+    console.log(
+      "Token response of short-lived: ",
+      JSON.parse(result).access_token
+    );
 
     try {
       let resp = await axios.get(
