@@ -15,7 +15,7 @@ export async function POST(req) {
 
   console.log("formData: ", formData);
 
-  bodyJson = {
+  const bodyJson = {
     client_id: process.env.NEXT_PUBLIC_APP_ID,
     client_secret: process.env.NEXT_PUBLIC_SECRET,
     grant_type: "authorization_code",
