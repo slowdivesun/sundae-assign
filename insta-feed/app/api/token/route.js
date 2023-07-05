@@ -22,7 +22,7 @@ export async function POST(req) {
       "Content-Type": "multipart/form-data",
       // ...formData.getHeaders(),
     },
-    data: data,
+    data: formData,
   };
 
   const bodyJson = {
