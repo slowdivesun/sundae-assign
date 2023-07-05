@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
   console.log("Here's req: ", req);
-  let body = await req.json();
+  let body = await req.body.json();
   let code = body.code;
   let redirectUri = body.redirectUri;
   let accessToken = null;
