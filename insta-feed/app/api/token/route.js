@@ -89,7 +89,7 @@ export async function POST(req, res) {
     });
   } catch (e) {
     console.log("Error getting short-lived token:= ", e);
-    return NextResponse.json({ msg: "Error: ", error, status: 200 });
+    return NextResponse.json({ msg: "Error: ", e, status: 200 });
   }
 
   //   const { searchParams } = new URL(request.url);
