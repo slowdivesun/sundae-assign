@@ -3,6 +3,8 @@ import axios from "axios";
 export async function POST(req) {
   console.log("Here's req: ", req);
   let code = req.body.code;
+  if (code.endsWith("_#")) {
+  }
   let redirectUri = req.body.redirectUri;
   let accessToken = null;
   let formData = new FormData();
@@ -69,16 +71,16 @@ export async function POST(req) {
       JSON.parse(result).access_token
     );
 
-    try {
-      let resp = await axios.get(
-        `https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=${process.env.NEXT_PUBLIC_SECRET}&access_token=${accessToken}`
-      );
-      console.log("Response of long-lived: ", resp);
-      //   accessToken = resp.data.access_token;
-      // save accessToken  to Database
-    } catch (e) {
-      console.log("Error getting long-lived token:= ", e);
-    }
+    // try {
+    //   let resp = await axios.get(
+    //     `https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=${process.env.NEXT_PUBLIC_SECRET}&access_token=${accessToken}`
+    //   );
+    //   console.log("Response of long-lived: ", resp);
+    //   //   accessToken = resp.data.access_token;
+    //   // save accessToken  to Database
+    // } catch (e) {
+    //   console.log("Error getting long-lived token:= ", e);
+    // }
 
     return NextResponse.json({ msg: "Done!", status: 200 });
   } catch (e) {
