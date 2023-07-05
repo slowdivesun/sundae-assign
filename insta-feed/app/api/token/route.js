@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function POST(req) {
+export default async function POST(req) {
   console.log("Here's req: ", req);
   let code = req.body.code;
   let redirectUri = req.body.redirectUri;
