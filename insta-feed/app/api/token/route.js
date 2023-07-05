@@ -2,10 +2,9 @@ import axios from "axios";
 
 export async function POST(req) {
   console.log("Here's req: ", req);
-  let code = req.body.code;
-  if (code.endsWith("_#")) {
-  }
-  let redirectUri = req.body.redirectUri;
+  let body = await req.body;
+  let code = body.code;
+  let redirectUri = body.redirectUri;
   let accessToken = null;
   let formData = new FormData();
 
