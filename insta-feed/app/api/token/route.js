@@ -19,7 +19,8 @@ export async function POST(req) {
     maxBodyLength: Infinity,
     url: "https://api.instagram.com/oauth/access_token",
     headers: {
-      ...formData.getHeaders(),
+      "Content-Type": "multipart/form-data",
+      // ...formData.getHeaders(),
     },
     data: data,
   };
