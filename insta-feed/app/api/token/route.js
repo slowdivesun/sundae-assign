@@ -54,7 +54,7 @@ export async function POST(req) {
       bodyJson,
       {
         headers: {
-          "Content-Type": "x-www-form-irlencoded",
+          "Content-Type": "multipart/form-data",
         },
       }
     );
