@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -32,16 +33,33 @@ const InstaSection = () => {
     );
 
     const func = () => {
-      fetch("/api/token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          code,
-          redirectUri: window.location.origin + "/insta/",
-        }),
-      });
+      // fetch("/api/token", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     code,
+      //     redirectUri: window.location.origin + "/insta/",
+      //   }),
+      // });
+
+      try {
+        axios.post(
+          "/api/token",
+          JSON.stringify({
+            code,
+            redirectUri: window.location.origin + "/insta/",
+          }),
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+      } catch (error) {
+        console.log("/api/token/ api error: ", error);
+      }
     };
 
     func();
