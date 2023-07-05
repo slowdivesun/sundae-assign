@@ -45,7 +45,7 @@ const InstaSection = () => {
       // });
 
       try {
-        axios.post(
+        const res = axios.post(
           "/api/token",
           JSON.stringify({
             code,
@@ -57,6 +57,7 @@ const InstaSection = () => {
             },
           }
         );
+        console.log(res);
       } catch (error) {
         console.log("/api/token/ api error: ", error);
       }
