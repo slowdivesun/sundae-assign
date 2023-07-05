@@ -32,7 +32,7 @@ const InstaSection = () => {
       })
     );
 
-    const func = () => {
+    const func = async () => {
       // fetch("/api/token", {
       //   method: "POST",
       //   headers: {
@@ -45,7 +45,7 @@ const InstaSection = () => {
       // });
 
       try {
-        const res = axios.post(
+        const res = await axios.post(
           "/api/token",
           JSON.stringify({
             code,
