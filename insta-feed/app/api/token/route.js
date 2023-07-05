@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function POST(req) {
+export async function POST(req) {
   console.log("Here's req: ", req);
   let code = req.body.code;
   let redirectUri = req.body.redirectUri;
@@ -69,7 +69,7 @@ export default async function POST(req) {
     );
 
     try {
-      let resp = await axios.get(
+      let resp = await result.redirect(
         `https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=${process.env.NEXT_PUBLIC_SECRET}&access_token=${accessToken}`
       );
       console.log("Response of long-lived: ", resp);
