@@ -13,7 +13,15 @@ export async function POST(req) {
   formData.append("redirect_uri", redirectUri);
   formData.append("code", code);
 
-  console.log(formData);
+  console.log("formData: ", formData);
+
+  bodyJson = {
+    client_id: process.env.NEXT_PUBLIC_APP_ID,
+    client_secret: process.env.NEXT_PUBLIC_SECRET,
+    grant_type: "authorization_code",
+    redirect_uri: redirectUri,
+    code,
+  };
 
   try {
     // send form based request to Instagram API
@@ -43,7 +51,7 @@ export async function POST(req) {
 
     let result = await axios.post(
       "https://api.instagram.com/oauth/access_token",
-      formData,
+      bodyJson,
       {
         headers: {
           "Content-Type": "application/json",
