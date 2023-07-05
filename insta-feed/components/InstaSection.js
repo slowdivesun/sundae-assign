@@ -33,34 +33,35 @@ const InstaSection = () => {
     );
 
     const func = async () => {
-      // fetch("/api/token", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     code,
-      //     redirectUri: window.location.origin + "/insta/",
-      //   }),
-      // });
+      const res = await fetch("/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          code,
+          redirectUri: window.location.origin + "/insta/",
+        }),
+      });
+      console.log("res: ", res);
 
-      try {
-        const res = await axios.post(
-          "/api/token",
-          {
-            code,
-            redirectUri: window.location.origin + "/insta/",
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        console.log(res);
-      } catch (error) {
-        console.log("/api/token/ api error: ", error);
-      }
+      // try {
+      //   const res = await axios.post(
+      //     "/api/token",
+      //     {
+      //       code,
+      //       redirectUri: window.location.origin + "/insta/",
+      //     },
+      //     {
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //     }
+      //   );
+      //   console.log(res);
+      // } catch (error) {
+      //   console.log("/api/token/ api error: ", error);
+      // }
     };
 
     func();
