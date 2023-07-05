@@ -34,13 +34,13 @@ const InstaSection = () => {
 
     const func = async () => {
       const res = await fetch("/api/token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: {
           code,
           redirectUri: window.location.origin + "/insta/",
+        },
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
       });
       console.log("res: ", res);
