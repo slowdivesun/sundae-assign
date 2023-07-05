@@ -38,10 +38,10 @@ const InstaSection = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
+        body: {
           code,
           redirectUri: window.location.origin + "/insta/",
-        }),
+        },
       });
       console.log("res: ", res);
 
