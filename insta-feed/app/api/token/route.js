@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
   console.log("Here's req: ", req);
-  let body = await req.body;
+  let body = await req.json();
   let code = body.code;
   let redirectUri = body.redirectUri;
   let accessToken = null;
@@ -89,7 +89,7 @@ export async function POST(req, res) {
     });
   } catch (e) {
     console.log("Error getting short-lived token:= ", e);
-    return NextResponse.json({ msg: "Error: ", e, status: 200 });
+    return NextResponse.json({ msg: "Error: ", e, status: 400 });
   }
 
   //   const { searchParams } = new URL(request.url);
