@@ -23,7 +23,7 @@ export async function POST(req, res) {
     url: "https://api.instagram.com/oauth/access_token",
     headers: {
       "Content-Type": "multipart/form-data",
-      // ...formData.getHeaders(),
+      ...formData.getHeaders(),
     },
     data: formData,
   };
