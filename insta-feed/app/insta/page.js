@@ -1,8 +1,9 @@
 import InstaSection from "../../components/InstaSection";
+import styles from "insta.module.css";
 
 const InstaPage = () => {
   return (
-    <div>
+    <div class='bg-insta'>
       <h1>Welcome</h1>
       <div>
         <InstaSection />

@@ -87,6 +87,7 @@ const InstaSection = () => {
           .filter((d) => d.media_type === "IMAGE")
           .map((d) => d.media_url);
         setData(instaPhotos);
+        console.log("insta photos: ", instaPhotos);
         // Got insta photos
       } catch (e) {
         console.log(e.response.data.error);
