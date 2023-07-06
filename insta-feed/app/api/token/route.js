@@ -82,7 +82,7 @@ export async function POST(req, res) {
 
     // Got access token. Parse string response to JSON
     // accessToken = JSON.parse(result).access_token;
-    accessToken = await result.accessToken;
+    accessToken = await result.data.accessToken;
     console.log("Token response of short-lived: ", accessToken);
 
     // try {
