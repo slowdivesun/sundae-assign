@@ -33,7 +33,7 @@ const InstaSection = () => {
     );
 
     const func = async () => {
-      const res = await fetch("/api/token", {
+      const res = await fetch("/api/token/", {
         body: JSON.stringify({
           code,
           redirectUri: window.location.origin + "/insta/",
