@@ -1,6 +1,7 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
+export const runtime = "nodejs";
 export const config = {
   api: {
     bodyParser: true,
