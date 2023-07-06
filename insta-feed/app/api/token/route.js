@@ -2,9 +2,9 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
-  // await console.log("Here's req: ", req);
+  console.log("Here's req: ", req);
   let body = await req.body;
-  await console.log("here's body: ", body);
+  console.log("Here's body: ", body);
   let code = body.code;
   let redirectUri = body.redirectUri;
   let accessToken = null;
@@ -16,7 +16,7 @@ export async function POST(req, res) {
   formData.append("redirect_uri", redirectUri);
   formData.append("code", code);
 
-  // await console.log("formData: ", formData);
+  // console.log("formData: ", formData);
   let config = {
     method: "post",
     maxBodyLength: Infinity,
@@ -63,11 +63,11 @@ export async function POST(req, res) {
     // });
 
     let result = await axios.request(config);
-    await console.log("Response of short-lived: ", result);
+    console.log("Response of short-lived: ", result);
 
     // Got access token. Parse string response to JSON
     accessToken = JSON.parse(result).access_token;
-    await console.log(
+    console.log(
       "Token response of short-lived: ",
       JSON.parse(result).access_token
     );
@@ -76,11 +76,11 @@ export async function POST(req, res) {
     //   let resp = await axios.get(
     //     `https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=${process.env.NEXT_PUBLIC_SECRET}&access_token=${accessToken}`
     //   );
-    //   await console.log("Response of long-lived: ", resp);
+    //   console.log("Response of long-lived: ", resp);
     //   //   accessToken = resp.data.access_token;
     //   // save accessToken  to Database
     // } catch (e) {
-    //   await console.log("Error getting long-lived token:= ", e);
+    //   console.log("Error getting long-lived token:= ", e);
     // }
 
     return NextResponse.json({
@@ -89,8 +89,8 @@ export async function POST(req, res) {
       status: 200,
     });
   } catch (e) {
-    await console.log("Error getting short-lived token:= ", e);
-    return NextResponse.json({ msg: "Error: ", e, status: 400 });
+    console.log("Error getting short-lived token:= ", e);
+    return NextResponse.json({ msg: "Error: ", e, status: 500 });
   }
 
   //   const { searchParams } = new URL(request.url);
