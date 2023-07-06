@@ -5,6 +5,8 @@ export async function POST(req, res) {
   console.log("Here's req: ", req);
   let body = await req.body;
   console.log("Here's body: ", body);
+  body = await req.body.json();
+  console.log("Here's body in json: ", body);
   let code = body.code;
   let redirectUri = body.redirectUri;
   let accessToken = null;
@@ -23,7 +25,7 @@ export async function POST(req, res) {
     url: "https://api.instagram.com/oauth/access_token",
     headers: {
       "Content-Type": "multipart/form-data",
-      ...formData.getHeaders(),
+      // ...formData.getHeaders(),
     },
     data: formData,
   };
