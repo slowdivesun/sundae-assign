@@ -2,9 +2,9 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
-  // console.log("Here's req: ", req);
+  // await console.log("Here's req: ", req);
   let body = await req.body;
-  console.log("here's body: ", body);
+  await console.log("here's body: ", body);
   let code = body.code;
   let redirectUri = body.redirectUri;
   let accessToken = null;
@@ -16,7 +16,7 @@ export async function POST(req, res) {
   formData.append("redirect_uri", redirectUri);
   formData.append("code", code);
 
-  // console.log("formData: ", formData);
+  // await console.log("formData: ", formData);
   let config = {
     method: "post",
     maxBodyLength: Infinity,
@@ -63,11 +63,11 @@ export async function POST(req, res) {
     // });
 
     let result = await axios.request(config);
-    console.log("Response of short-lived: ", result);
+    await console.log("Response of short-lived: ", result);
 
     // Got access token. Parse string response to JSON
     accessToken = JSON.parse(result).access_token;
-    console.log(
+    await console.log(
       "Token response of short-lived: ",
       JSON.parse(result).access_token
     );
@@ -76,11 +76,11 @@ export async function POST(req, res) {
     //   let resp = await axios.get(
     //     `https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=${process.env.NEXT_PUBLIC_SECRET}&access_token=${accessToken}`
     //   );
-    //   console.log("Response of long-lived: ", resp);
+    //   await console.log("Response of long-lived: ", resp);
     //   //   accessToken = resp.data.access_token;
     //   // save accessToken  to Database
     // } catch (e) {
-    //   console.log("Error getting long-lived token:= ", e);
+    //   await console.log("Error getting long-lived token:= ", e);
     // }
 
     return NextResponse.json({
@@ -89,7 +89,7 @@ export async function POST(req, res) {
       status: 200,
     });
   } catch (e) {
-    console.log("Error getting short-lived token:= ", e);
+    await console.log("Error getting short-lived token:= ", e);
     return NextResponse.json({ msg: "Error: ", e, status: 400 });
   }
 
