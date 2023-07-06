@@ -4,8 +4,8 @@ import LoginButton from "../components/LoginButton";
 
 export default function Home() {
   return (
-    <div className={styles.bg}>
+    <main className={styles.main}>
       <LoginButton />
-    </div>
+    </main>
   );
 }
