@@ -14,7 +14,8 @@ export async function POST(req, res) {
   // console.log("Here's req in json: ", body);
   let req_text = await req.text();
   console.log("Here's req text : ", req_text);
-  req_json = await req_text.json();
+  console.log("type: ", typeof req_text);
+  req_json = await JSON.parse(req_text);
   console.log("Here's req json : ", req_json);
   let body = await req_json.body;
   console.log("Here's body : ", body);
