@@ -1,18 +1,22 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-export const runtime = "nodejs";
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};
+// export const runtime = "nodejs";
+// export const config = {
+//   api: {
+//     bodyParser: true,
+//   },
+// };
 
 export async function POST(req, res) {
   console.log("Here's req: ", req);
   // let body = await req.json();
   // console.log("Here's req in json: ", body);
-  let body = await req.body;
+  let req_text = await req.text();
+  console.log("Here's req text : ", body);
+  req_json = await req_text.json();
+  console.log("Here's req json : ", req_json);
+  let body = await req_json.body;
   console.log("Here's body : ", body);
   let code = body.code;
   let redirectUri = body.redirectUri;
