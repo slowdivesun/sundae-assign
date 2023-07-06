@@ -1,8 +1,9 @@
 import LoginButton from "../../components/LoginButton";
+import styles from "./login.module.css";
 
 const LoginPage = () => {
   return (
-    <div>
+    <div style={styles.bg}>
       <LoginButton />
     </div>
   );
