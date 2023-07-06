@@ -17,10 +17,10 @@ export async function POST(req, res) {
   console.log("type: ", typeof req_text);
   let req_json = await JSON.parse(req_text);
   console.log("Here's req json : ", req_json);
-  let body = await req_json.body;
-  console.log("Here's body : ", body);
-  let code = body.code;
-  let redirectUri = body.redirectUri;
+  // let body = await req_json.body;
+  // console.log("Here's body : ", body);
+  let code = req_json.code;
+  let redirectUri = req_json.redirectUri;
   let accessToken = null;
   let formData = new FormData();
 
