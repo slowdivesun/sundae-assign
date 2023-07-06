@@ -2,8 +2,9 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
-  console.log("Here's req: ", req);
-  let body = await req.body.json();
+  // console.log("Here's req: ", req);
+  let body = await req.body;
+  console.log("here's body: ", body);
   let code = body.code;
   let redirectUri = body.redirectUri;
   let accessToken = null;
