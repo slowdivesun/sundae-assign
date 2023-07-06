@@ -3,7 +3,7 @@ import styles from "./login.module.css";
 
 const LoginPage = () => {
   return (
-    <div style={styles.bg}>
+    <div className={styles.bg}>
       <LoginButton />
     </div>
   );
