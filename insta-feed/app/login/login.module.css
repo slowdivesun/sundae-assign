@@ -1,4 +1,7 @@
 .bg{
     background: rgb(229,174,238);
     background: radial-gradient(circle, rgba(229,174,238,1) 0%, rgba(148,231,233,1) 100%);
+    width: 100%;
+    height: 100%;
+    display: flex;
 }
