@@ -1,6 +1,12 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
+export const config = {
+  api: {
+    bodyParser: true,
+  },
+};
+
 export async function POST(req, res) {
   console.log("Here's req: ", req);
   let body = await req.json();

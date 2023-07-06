@@ -47,10 +47,10 @@ const InstaSection = () => {
       try {
         const res = await axios.post(
           "/api/token/",
-          {
+          JSON.stringify({
             code,
             redirectUri: window.location.origin + "/insta/",
-          },
+          }),
           {
             headers: {
               "Content-Type": "application/json",
