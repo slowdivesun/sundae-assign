@@ -1,5 +1,6 @@
 "use client";
 import axios from "axios";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -83,11 +84,11 @@ const InstaSection = () => {
           `https://graph.instagram.com/me/media?fields=media_type,permalink,media_url&access_token=${token}`
         );
         resp = resp.data;
-        let instaPhotos = resp.data
+        let instaData = resp.data
           .filter((d) => d.media_type === "IMAGE")
           .map((d) => d.media_url);
-        setData(instaPhotos);
-        console.log("insta photos: ", instaPhotos);
+        setData(instaData);
+        console.log("insta photos: ", instaData);
         // Got insta photos
       } catch (e) {
         console.log(e.response.data.error);
@@ -97,11 +98,46 @@ const InstaSection = () => {
     func();
   }, [token]);
 
+  // useEffect(() => {
+  //   const func = async () => {
+  //     try {
+  //       let resp = await axios.get(
+  //         `https://graph.instagram.com/me/media?fields=username,media_type,caption,permalink,media_url.children&access_token=${token}`
+  //       );
+  //       resp = resp.data;
+  //       let instaData = resp.data;
+  //       setData(instaData);
+  //       console.log("insta photos: ", instaData);
+  //       // Got insta photos
+  //     } catch (e) {
+  //       console.log(e.response.data.error);
+  //     }
+  //   };
+
+  //   func();
+  // }, [token]);
+
   //   if (isLoading) return <p>Loading...</p>;
   //   if (!data) return <p>No profile data</p>;
   //   console.log(data);
 
-  return <div>Insta Section</div>;
+  return (
+    <div>
+      {/* {instaPhotos.map((photo) => {
+        if (photo.media_type === "IMAGE") {
+          return (
+            <Image
+              src={photo.media_url}
+              width={photo.width}
+              height={photo.height}
+              alt={`an instagram post by ${}`}
+            />
+          );
+        }
+      })} */}
+      yuhh
+    </div>
+  );
 };
 
 export default InstaSection;

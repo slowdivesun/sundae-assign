@@ -1,10 +1,13 @@
+import { Typography } from "@mui/material";
 import InstaSection from "../../components/InstaSection";
 import styles from "./insta.module.css";
 
 const InstaPage = () => {
   return (
     <div className={styles["bg-insta"]}>
-      <h1>Welcome</h1>
+      <Typography variant='h3' gutterBottom>
+        Welcome
+      </Typography>
       <div>
         <InstaSection />
       </div>
