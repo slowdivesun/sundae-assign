@@ -81,11 +81,8 @@ export async function POST(req, res) {
 
     // Got access token. Parse string response to JSON
     // accessToken = JSON.parse(result).access_token;
-    accessToken = result.accessToken;
-    console.log(
-      "Token response of short-lived: ",
-      JSON.parse(result).access_token
-    );
+    accessToken = await result.accessToken;
+    console.log("Token response of short-lived: ", access_token);
 
     // try {
     //   let resp = await axios.get(
