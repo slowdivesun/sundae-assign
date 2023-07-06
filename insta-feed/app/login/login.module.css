@@ -1,13 +1,11 @@
 .bg{
-    background: rgb(229,174,238);
-    background: radial-gradient(circle, rgba(229,174,238,1) 0%, rgba(148,231,233,1) 100%);
+    background: #f09433; 
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-.login-btn{
-
 }
