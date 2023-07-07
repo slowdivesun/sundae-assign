@@ -1,13 +1,6 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
 
-// export const runtime = "nodejs";
-// export const config = {
-//   api: {
-//     bodyParser: true,
-//   },
-// };
-
 export async function POST(req, res) {
   console.log("Here's req: ", req);
   // let body = await req.json();
@@ -51,31 +44,6 @@ export async function POST(req, res) {
   };
 
   try {
-    // send form based request to Instagram API
-    // let result = await request.post({
-    //   url: "https://api.instagram.com/oauth/access_token",
-    //   form: {
-    //     client_id: process.env.NEXT_PUBLIC_APP_ID,
-    //     client_secret: process.env.NEXT_PUBLIC_SECRET,
-    //     grant_type: "authorization_code",
-    //     redirect_uri: redirectUri,
-    //     code: code,
-    //   },
-    // });
-
-    // let result = await fetch("https://api.instagram.com/oauth/access_token", {
-    //   method: "POST",
-    //   body: {
-    //     form: {
-    //       client_id: process.env.NEXT_PUBLIC_APP_ID,
-    //       client_secret: process.env.NEXT_PUBLIC_SECRET,
-    //       grant_type: "authorization_code",
-    //       redirect_uri: redirectUri,
-    //       code: code,
-    //     },
-    //   },
-    // });
-
     let result = await axios.request(config);
     console.log("Response of short-lived: ", result);
     console.log("Data response of short-lived: ", result.data);
@@ -113,16 +81,4 @@ export async function POST(req, res) {
       status: 500,
     });
   }
-
-  //   const { searchParams } = new URL(request.url);
-  //   const id = searchParams.get("id");
-  //   const res = await fetch(`https://data.mongodb-api.com/product/${id}`, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "API-Key": process.env.DATA_API_KEY,
-  //     },
-  //   });
-  //   const product = await res.json();
-
-  //   return NextResponse.json({ product });
 }
