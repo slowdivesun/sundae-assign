@@ -68,7 +68,6 @@ const InstaSection = () => {
         resp = resp.data;
         let instaData = resp.data;
         setData(instaData);
-        console.log("data is here: ", data);
         console.log("insta data: ", instaData);
       } catch (e) {
         console.log(e.response.data.error);
@@ -76,7 +75,7 @@ const InstaSection = () => {
     };
 
     func();
-  }, [token]);
+  }, [token, setData]);
 
   // useEffect(() => {
   //   const func = async () => {
@@ -103,7 +102,7 @@ const InstaSection = () => {
 
   return (
     <div>
-      {data?.map((post, i) => {
+      {/* {instaPhotos.map((post, i) => {
         if (post.media_type === "IMAGE") {
           return (
             <Image
@@ -116,7 +115,7 @@ const InstaSection = () => {
           );
         }
         return <InstaCarousel key={i} post={post} />;
-      })}
+      })} */}
       yuhh
     </div>
   );
