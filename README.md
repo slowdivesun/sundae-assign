@@ -11,3 +11,7 @@
 - Information like followers, following and like count cannot be displayed since the Basic Display API doesn't cover them.
 
 - If too many requests are made, instagram will return a 429. In this case, alt text will be displayed
+
+## Issues
+- Google has marked the hosted website as a phishing attempt, hence this link needs to be clicked to bypass it
+![Demo](https://github.com/slowdivesun/sundae-assign/blob/master/insta-feed/public/screenshots/dangerous.png)
