@@ -114,8 +114,9 @@ const InstaSection = () => {
               alt={`an instagram post by ${post.username}`}
             />
           );
+        } else if (post.media_type === "CAROUSEL_ALBUM") {
+          return <InstaCarousel key={i} post={post} />;
         }
-        return <InstaCarousel key={i} post={post} />;
       })}
       yuhh
     </div>
