@@ -103,7 +103,7 @@ const InstaSection = () => {
 
   return (
     <div>
-      {data.map((post, i) => {
+      {data?.map((post, i) => {
         if (post.media_type === "IMAGE") {
           return (
             <Image
