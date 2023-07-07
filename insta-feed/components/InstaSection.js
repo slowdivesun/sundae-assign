@@ -2,7 +2,7 @@
 import axios from "axios";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import InstaCarousel from "./InstaCarousel";
 
 const InstaSection = () => {
@@ -116,6 +116,8 @@ const InstaSection = () => {
           );
         } else if (post.media_type === "CAROUSEL_ALBUM") {
           return <InstaCarousel key={i} post={post} />;
+        } else {
+          return <React.Fragment></React.Fragment>;
         }
       })}
       yuhh
