@@ -9,12 +9,13 @@ const InstaCarousel = ({ post }) => {
   console.log("post children in carousel: ", post.children);
   const [children, setChildren] = useState(null);
 
-  //   useEffect(() => {
-  //     if (post != null) {
-  //       setChildren(post.children);
-  //       console.log("children: ", children);
-  //     }
-  //   }, []);
+  useEffect(() => {
+    console.log("useeffect in carousel running, post is: ", post);
+    if (post != null) {
+      setChildren(post.children);
+      console.log("children: ", children);
+    }
+  }, [post]);
   return (
     <React.Fragment>
       <Carousel>
