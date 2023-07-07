@@ -10,10 +10,9 @@ const InstaSection = () => {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [token, setToken] = useState(null);
-  const [code, setCode] = useState(null);
 
   const searchParams = useSearchParams();
-  setCode(searchParams.get("code"));
+  let code = searchParams.get("code");
 
   // DEBUG messages
   // console.log("params: ", searchParams);
@@ -22,7 +21,7 @@ const InstaSection = () => {
 
   useEffect(() => {
     setLoading(true);
-    setCode(searchParams.get("code"));
+    code = searchParams.get("code");
 
     // DEBUG message
     // console.log("params code: ", searchParams.get("code"));
@@ -102,7 +101,7 @@ const InstaSection = () => {
 
   return (
     <div>
-      {instaPhotos.map((post) => {
+      {/* {instaPhotos.map((post) => {
         if (post.media_type === "IMAGE") {
           return (
             <Image
@@ -114,7 +113,7 @@ const InstaSection = () => {
           );
         }
         return <InstaCarousel post={post} />;
-      })}
+      })} */}
       yuhh
     </div>
   );
