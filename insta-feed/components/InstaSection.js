@@ -57,7 +57,7 @@ const InstaSection = () => {
     //     setData(data);
     //     setLoading(false);
     //   });
-  }, [searchParams, setCode, setLoading]);
+  }, [searchParams]);
 
   useEffect(() => {
     const func = async () => {
@@ -75,7 +75,7 @@ const InstaSection = () => {
     };
 
     func();
-  }, [token, setData]);
+  }, [token]);
 
   // useEffect(() => {
   //   const func = async () => {
@@ -102,11 +102,10 @@ const InstaSection = () => {
 
   return (
     <div>
-      {/* {instaPhotos.map((post, i) => {
+      {instaPhotos.map((post) => {
         if (post.media_type === "IMAGE") {
           return (
             <Image
-              key={i}
               src={post.media_url}
               width={post.width}
               height={post.height}
@@ -114,8 +113,8 @@ const InstaSection = () => {
             />
           );
         }
-        return <InstaCarousel key={i} post={post} />;
-      })} */}
+        return <InstaCarousel post={post} />;
+      })}
       yuhh
     </div>
   );
