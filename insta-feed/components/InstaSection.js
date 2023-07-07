@@ -102,7 +102,7 @@ const InstaSection = () => {
 
   return (
     <div>
-      {instaPhotos.map((post, i) => {
+      {instaData.map((post, i) => {
         if (post.media_type === "IMAGE") {
           return (
             <Image
