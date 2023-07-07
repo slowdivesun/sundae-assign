@@ -7,11 +7,13 @@ import InstaCarousel from "./InstaCarousel";
 import {
   Alert,
   AlertTitle,
+  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
   CircularProgress,
+  Typography,
 } from "@mui/material";
 
 const InstaSection = () => {
