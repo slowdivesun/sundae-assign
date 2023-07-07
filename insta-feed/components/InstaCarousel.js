@@ -5,9 +5,10 @@ import Image from "next/image";
 import React from "react";
 
 const InstaCarousel = ({ post }) => {
+  console.log("post in carousel: ", post);
   return (
     <React.Fragment>
-      <Carousel>
+      {/* <Carousel>
         {post.children.map((photo, i) => (
           <Paper key={i}>
             <Image
@@ -18,10 +19,10 @@ const InstaCarousel = ({ post }) => {
             />
           </Paper>
         ))}
-      </Carousel>
-      <Typography variant='h3' gutterBottom>
-        {post.caption}
-      </Typography>
+      </Carousel> */}
+      {/* <Typography variant='h3' gutterBottom>
+        {post.caption} */}
+      {/* </Typography> */}
     </React.Fragment>
   );
 };
