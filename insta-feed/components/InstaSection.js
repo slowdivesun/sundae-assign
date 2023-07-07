@@ -122,7 +122,7 @@ const InstaSection = () => {
               />
               <CardContent>
                 <Typography variant='body2' color='text.secondary'>
-                  {post.caption ? post.caption : ""}
+                  Caption: {post.caption ? post.caption : "NA"}
                 </Typography>
               </CardContent>
               <CardActions>

@@ -1,13 +1,6 @@
 "use client";
 import Carousel from "react-material-ui-carousel";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -25,34 +18,25 @@ const InstaCarousel = ({ post }) => {
   }, [post]);
   return (
     <React.Fragment>
-      <Card sx={{ maxWidth: 500 }} key={i}>
-        <Carousel>
-          {children
-            ? children.data != null
-              ? children.data.map((photo, i) => (
-                  <Paper key={i}>
-                    <Image
-                      src={photo.media_url}
-                      width={300}
-                      height={300}
-                      alt='instagram photo'
-                    />
-                  </Paper>
-                ))
-              : null
-            : null}
-        </Carousel>
-        <CardContent>
-          <Typography variant='body2' color='text.secondary'>
-            {post?.caption ? post?.caption : ""}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button href={post?.permalink} size='small'>
-            Visit
-          </Button>
-        </CardActions>
-      </Card>
+      <Carousel>
+        {children
+          ? children.data != null
+            ? children.data.map((photo, i) => (
+                <Paper key={i}>
+                  <Image
+                    src={photo.media_url}
+                    width={300}
+                    height={300}
+                    alt='instagram photo'
+                  />
+                </Paper>
+              ))
+            : null
+          : null}
+      </Carousel>
+      <Typography variant='h5' gutterBottom>
+        Caption: {post?.caption ? post?.caption : "NA"}
+      </Typography>
     </React.Fragment>
   );
 };
