@@ -3,6 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import InstaCarousel from "./InstaCarousel";
 
 const InstaSection = () => {
   // state objects
@@ -64,9 +65,9 @@ const InstaSection = () => {
           `https://graph.instagram.com/me/media?fields=username,media_type,caption,permalink,media_url,children{media_url}&access_token=${token}`
         );
         resp = resp.data;
-        let instaData = resp;
+        let instaData = resp.data;
         setData(instaData);
-        console.log("insta photos: ", instaData);
+        console.log("insta data: ", instaData);
       } catch (e) {
         console.log(e.response.data.error);
       }
@@ -100,18 +101,21 @@ const InstaSection = () => {
 
   return (
     <div>
-      {/* {instaPhotos.map((photo) => {
-        if (photo.media_type === "IMAGE") {
+      {instaPhotos.map((post) => {
+        if (post.media_type === "IMAGE") {
           return (
             <Image
-              src={photo.media_url}
-              width={photo.width}
-              height={photo.height}
+              src={post.media_url}
+              width={post.width}
+              height={post.height}
               alt={`an instagram post by ${}`}
             />
           );
         }
-      })} */}
+        return (
+          <InstaCarousel post={post}/>
+        )
+      })}
       yuhh
     </div>
   );
