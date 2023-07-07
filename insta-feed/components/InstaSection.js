@@ -68,6 +68,7 @@ const InstaSection = () => {
         resp = resp.data;
         let instaData = resp.data;
         setData(instaData);
+        console.log("data is here: ", data);
         console.log("insta data: ", instaData);
       } catch (e) {
         console.log(e.response.data.error);
