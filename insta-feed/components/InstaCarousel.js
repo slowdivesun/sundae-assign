@@ -9,7 +9,7 @@ const InstaCarousel = ({ post }) => {
     <React.Fragment>
       <Carousel>
         {post.children.map((photo, i) => (
-          <Paper>
+          <Paper key={i}>
             <Image
               src={photo.media_url}
               width={300}
