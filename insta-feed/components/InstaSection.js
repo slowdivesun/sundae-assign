@@ -108,13 +108,11 @@ const InstaSection = () => {
               src={post.media_url}
               width={post.width}
               height={post.height}
-              alt={`an instagram post by ${}`}
+              alt={`an instagram post by ${post.username}`}
             />
           );
         }
-        return (
-          <InstaCarousel post={post}/>
-        )
+        return <InstaCarousel post={post} />;
       })}
       yuhh
     </div>
