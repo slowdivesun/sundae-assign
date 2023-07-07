@@ -21,7 +21,7 @@
 
 ## Issues
 - Google has marked the hosted website as a phishing attempt, hence this link needs to be clicked to bypass it
-| ![Demo](https://github.com/slowdivesun/sundae-assign/blob/master/insta-feed/public/screenshots/dangerous.png) | 
+| ![Warning](https://github.com/slowdivesun/sundae-assign/blob/master/insta-feed/public/screenshots/dangerous.png) | 
 |:--:| 
 | *Demo to bypass warning* |
 
