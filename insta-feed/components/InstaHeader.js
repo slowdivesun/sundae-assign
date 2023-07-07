@@ -2,7 +2,7 @@
 
 import { Typography } from "@mui/material";
 
-const LoginButton = () => {
+const InstaHeader = () => {
   return (
     <Typography variant='h3' gutterBottom>
       Welcome
@@ -10,4 +10,4 @@ const LoginButton = () => {
   );
 };
 
-export default LoginButton;
+export default InstaHeader;
