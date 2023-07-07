@@ -1,6 +1,6 @@
 "use client";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button } from "@mui/material";
+import { Paper, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
