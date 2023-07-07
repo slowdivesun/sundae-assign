@@ -57,7 +57,7 @@ const InstaSection = () => {
     //     setData(data);
     //     setLoading(false);
     //   });
-  }, [searchParams]);
+  }, [searchParams, code, setLoading]);
 
   useEffect(() => {
     const func = async () => {
@@ -75,7 +75,7 @@ const InstaSection = () => {
     };
 
     func();
-  }, [token]);
+  }, [token, setData]);
 
   // useEffect(() => {
   //   const func = async () => {
