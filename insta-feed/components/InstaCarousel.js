@@ -13,7 +13,7 @@ const InstaCarousel = ({ post }) => {
       setChildren(post.children);
       console.log("children: ", children);
     }
-  }, [post]);
+  }, []);
   return (
     <React.Fragment>
       <Carousel>
