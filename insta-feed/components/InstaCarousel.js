@@ -19,7 +19,7 @@ const InstaCarousel = ({ post }) => {
   return (
     <React.Fragment>
       <Carousel>
-        {/* {children.map((photo, i) => (
+        {children?.map((photo, i) => (
           <Paper key={i}>
             <Image
               src={photo.media_url}
@@ -28,7 +28,7 @@ const InstaCarousel = ({ post }) => {
               alt='instagram photo'
             />
           </Paper>
-        ))} */}
+        ))}
       </Carousel>
       <Typography variant='h3' gutterBottom>
         {post?.caption}
