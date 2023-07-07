@@ -4,7 +4,15 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import InstaCarousel from "./InstaCarousel";
-import { Alert, AlertTitle, CircularProgress } from "@mui/material";
+import {
+  Alert,
+  AlertTitle,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CircularProgress,
+} from "@mui/material";
 
 const InstaSection = () => {
   // state objects
