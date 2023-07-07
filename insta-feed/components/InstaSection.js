@@ -57,7 +57,7 @@ const InstaSection = () => {
     //     setData(data);
     //     setLoading(false);
     //   });
-  }, [searchParams, code, setLoading]);
+  }, [searchParams, setCode, setLoading]);
 
   useEffect(() => {
     const func = async () => {
