@@ -84,9 +84,8 @@ const InstaSection = () => {
           `https://graph.instagram.com/me/media?fields=media_type,permalink,media_url&access_token=${token}`
         );
         resp = resp.data;
-        let instaData = resp.data
-          .filter((d) => d.media_type === "IMAGE")
-          .map((d) => d.media_url);
+        // let instaData = resp.data.map((d) => d.media_url);
+        let instaData = resp;
         setData(instaData);
         console.log("insta photos: ", instaData);
         // Got insta photos
