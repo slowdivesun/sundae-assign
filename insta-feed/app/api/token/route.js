@@ -94,23 +94,24 @@ export async function POST(req, res) {
       console.log("Token response of long lived: ", longAccessToken);
 
       return NextResponse.json({
-        msg: "Done with long-lived! Data: ",
+        msg: "Done with long-lived!",
         longAccessToken,
         status: 200,
       });
       // save accessToken  to Database
     } catch (e) {
       console.log("Error getting long-lived token:= ", e);
+      return NextResponse.json({
+        msg: `Error: ${e}`,
+        status: 500,
+      });
     }
-
-    return NextResponse.json({
-      msg: "Done with short-lived! Data: ",
-      accessToken,
-      status: 200,
-    });
   } catch (e) {
     console.log("Error getting short-lived token:= ", e);
-    return NextResponse.json({ msg: "Error: ", e, status: 500 });
+    return NextResponse.json({
+      msg: `Error: ${e}`,
+      status: 500,
+    });
   }
 
   //   const { searchParams } = new URL(request.url);
