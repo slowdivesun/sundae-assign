@@ -6,7 +6,7 @@
 
 ## /insta Page
 - Albums are displayed as carousel
-[Carousel](https://github.com/slowdivesun/sundae-assign/blob/master/insta-feed/public/screenshots/carousel-1.png)
+![Carousel](https://github.com/slowdivesun/sundae-assign/blob/master/insta-feed/public/screenshots/carousel-1.png)
 
 - Information like followers, following and like count cannot be displayed since the Basic Display API doesn't cover them.
 
