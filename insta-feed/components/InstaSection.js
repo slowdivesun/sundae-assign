@@ -103,13 +103,24 @@ const InstaSection = () => {
       {data?.map((post, i) => {
         if (post.media_type === "IMAGE") {
           return (
-            <Image
-              key={i}
-              src={post.media_url}
-              width={post.width}
-              height={post.height}
-              alt={`an instagram post by ${post.username}`}
-            />
+            <Card sx={{ maxWidth: 500 }} key={i}>
+              <CardMedia
+                component='img'
+                alt='Instagram post'
+                height='500'
+                image={post.media_url}
+              />
+              <CardContent>
+                <Typography variant='body2' color='text.secondary'>
+                  {post.caption ? post.caption : ""}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button href={post.permalink} size='small'>
+                  Visit
+                </Button>
+              </CardActions>
+            </Card>
           );
         }
         return <InstaCarousel key={i} post={post} />;

@@ -18,25 +18,34 @@ const InstaCarousel = ({ post }) => {
   }, [post]);
   return (
     <React.Fragment>
-      <Carousel>
-        {children
-          ? children.data != null
-            ? children.data.map((photo, i) => (
-                <Paper key={i}>
-                  <Image
-                    src={photo.media_url}
-                    width={300}
-                    height={300}
-                    alt='instagram photo'
-                  />
-                </Paper>
-              ))
-            : null
-          : null}
-      </Carousel>
-      <Typography variant='h3' gutterBottom>
-        {post?.caption}
-      </Typography>
+      <Card sx={{ maxWidth: 500 }} key={i}>
+        <Carousel>
+          {children
+            ? children.data != null
+              ? children.data.map((photo, i) => (
+                  <Paper key={i}>
+                    <Image
+                      src={photo.media_url}
+                      width={300}
+                      height={300}
+                      alt='instagram photo'
+                    />
+                  </Paper>
+                ))
+              : null
+            : null}
+        </Carousel>
+        <CardContent>
+          <Typography variant='body2' color='text.secondary'>
+            {post?.caption ? post?.caption : ""}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button href={post?.permalink} size='small'>
+            Visit
+          </Button>
+        </CardActions>
+      </Card>
     </React.Fragment>
   );
 };
