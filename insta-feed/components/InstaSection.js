@@ -53,28 +53,23 @@ const InstaSection = () => {
     };
 
     func();
-
-    // fetch("/api/profile-data")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setData(data);
-    //     setLoading(false);
-    //   });
   }, [searchParams]);
 
   useEffect(() => {
     const func = async () => {
       try {
-        let resp = await axios.get(
-          `https://graph.instagram.com/me/media?fields=username,media_type,caption,permalink,media_url,children{media_url}&access_token=${token}`
-        );
-        resp = resp.data;
-        if (resp.data) {
-          let instaData = resp.data;
-          setData(instaData);
-          console.log("data: ", data);
+        if (token !== null) {
+          let resp = await axios.get(
+            `https://graph.instagram.com/me/media?fields=username,media_type,caption,permalink,media_url,children{media_url}&access_token=${token}`
+          );
+          resp = resp.data;
+          if (resp.data) {
+            let instaData = resp.data;
+            setData(instaData);
+            console.log("data: ", data);
+          }
+          setLoading(false);
         }
-        setLoading(false);
       } catch (e) {
         setError(true);
         console.log(e.response.data.error);
