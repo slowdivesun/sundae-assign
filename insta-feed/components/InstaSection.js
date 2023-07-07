@@ -10,9 +10,10 @@ const InstaSection = () => {
   const [data, setData] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [token, setToken] = useState(null);
+  const [code, setCode] = useState(null);
 
   const searchParams = useSearchParams();
-  let code = searchParams.get("code");
+  setCode(searchParams.get("code"));
 
   // DEBUG messages
   // console.log("params: ", searchParams);
@@ -21,7 +22,7 @@ const InstaSection = () => {
 
   useEffect(() => {
     setLoading(true);
-    code = searchParams.get("code");
+    setCode(searchParams.get("code"));
 
     // DEBUG message
     // console.log("params code: ", searchParams.get("code"));
