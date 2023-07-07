@@ -76,7 +76,7 @@ const InstaSection = () => {
     };
 
     func();
-  }, [token, setData]);
+  }, [token]);
 
   // useEffect(() => {
   //   const func = async () => {
