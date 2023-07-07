@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import InstaSection from "../../components/InstaSection";
 import styles from "./insta.module.css";
 import InstaHeader from "@/components/InstaHeader";
