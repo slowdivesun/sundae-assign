@@ -101,10 +101,11 @@ const InstaSection = () => {
 
   return (
     <div>
-      {/* {instaPhotos.map((post) => {
+      {data.map((post, i) => {
         if (post.media_type === "IMAGE") {
           return (
             <Image
+              key={i}
               src={post.media_url}
               width={post.width}
               height={post.height}
@@ -112,8 +113,8 @@ const InstaSection = () => {
             />
           );
         }
-        return <InstaCarousel post={post} />;
-      })} */}
+        return <InstaCarousel key={i} post={post} />;
+      })}
       yuhh
     </div>
   );
